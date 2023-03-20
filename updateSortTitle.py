@@ -11,7 +11,7 @@ password = os.getenv("KOMGA_PASSWORD")
 s = requests.Session()
 
 pages = json.loads(
-    s.get(f"{komga_url}/api/v1/series?search=The&deleted=false&page=0&size=10",
+    s.get(f"{komga_url}/api/v1/series?&deleted=false&page=0&size=10",
           auth=(user, password)).content
         )["totalPages"]
 
