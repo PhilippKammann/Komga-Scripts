@@ -21,7 +21,7 @@ for i in range(pages):
                   )["content"]
     for series in series_list:
         title = series["metadata"]["title"]
-        if title.startswith(("the ", "a ", "an ","The ", "A ", "An")):
+        if title.startswith(("the ", "a ", "an ","The ", "A ", "An ")):
             title_split = title.split()
             s.patch(f"{komga_url}/api/v1/series/{series['id']}/metadata",
                     json={"titleSort": " ".join(title_split[1:]) + ", " + title_split[0], "titleSortLock": True})
