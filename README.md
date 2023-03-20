@@ -17,4 +17,28 @@ For more information, please visit the [Komga-Discord](https://discord.gg/TdRpkD
     which will be hashed and stored in the database.
     The ```<path to database.sqlite>``` is the path to the database file, found in your Komga config folder.
 
+* ### updateSortTitle.py (requires ````.env````)
+    This script will update the sort title of all your series by removing the leading articles (*a, an, the*)
+    and appending it to the end of the title.
+    ```bash
+        python updateSortTitle.py
+    ```
 
+## Environment Variables
+The following environment variables are required for some scripts to work.
+Set them in your ```.env``` file. See ```.env.example``` for an example.
++ ### KOMGA_URL
+    The URL of your Komga server.
+    ```bash
+        KOMGA_URL=http://192.168.123.45:8080
+    ```
++ ### KOMGA_USER
+    The username of an Admin user.
+    ```bash
+        KOMGA_USER=admin@komga.com
+    ```
++ ### KOMGA_PASSWORD
+    The password of the Admin user.
+    ```bash
+        KOMGA_PASSWORD=supersecretpassword
+    ```
