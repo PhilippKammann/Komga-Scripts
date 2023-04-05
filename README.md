@@ -23,6 +23,15 @@ For more information, please visit the [Komga-Discord](https://discord.gg/TdRpkD
     ```bash
         python updateSortTitle.py
     ```
+  
+* ### emailNotification.py (requires ````.env````)
+    With this script you can send an email notification to all your users, using their E-Mail address.
+    You need to configure a SMTP server in the script before you can use it.
+    It will notify abut all new books in the notification interval.
+    Use a cronjob to run this script regularly.
+    ```bash
+        python emailNotification.py
+    ```  
 
 ## Environment Variables
 The following environment variables are required for some scripts to work.
