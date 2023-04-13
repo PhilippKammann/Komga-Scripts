@@ -26,12 +26,19 @@ For more information, please visit the [Komga-Discord](https://discord.gg/TdRpkD
   
 * ### emailNotification.py (requires ````.env````)
     With this script you can send an email notification to all your users, using their E-Mail address.
-    You need to configure a SMTP server in the script before you can use it.
+    You need to configure an SMTP server in the script before you can use it.
     It will notify abut all new books in the notification interval.
     Use a cronjob to run this script regularly.
     ```bash
         python emailNotification.py
     ```  
+* ### anilist_collection.py (requires ````.env````)
+    Create a collection in Komga based on your Anilist manga list. Split into reading, planned and
+    completed collections. You need to specify your Anilist username(s) and Komga library ids in the
+    script before you can use it.
+    ```bash
+        python updateSortTitle.py
+    ```
 
 ## Environment Variables
 The following environment variables are required for some scripts to work.
