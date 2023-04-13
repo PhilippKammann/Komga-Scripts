@@ -8,9 +8,9 @@ import smtplib
 from email.message import EmailMessage
 
 load_dotenv()
-komga_url = os.getenv("KOMGA_URL")
-user = os.getenv("KOMGA_USER")
-password = os.getenv("KOMGA_PASSWORD")
+KOMGA_URL = os.getenv("KOMGA_URL")
+KOMGA_USER = os.getenv("KOMGA_USER")
+KOMGA_PASSWORD = os.getenv("KOMGA_PASSWORD")
 
 NOTIFICATION_INTERVAL = 2  # days
 EMAIL_ADDRESS = "mail@mail.com"
@@ -21,26 +21,26 @@ SMTP_PORT = 25
 s = requests.Session()
 
 users = json.loads(
-    s.get(f"{komga_url}/api/v2/users",
-          auth=(user, password)).content
+    s.get(f"{KOMGA_URL}/api/v2/users",
+          auth=(KOMGA_USER, KOMGA_PASSWORD)).content
 )
 
 all_libraries = [l["id"] for l in json.loads(
-    s.get(f"{komga_url}/api/v1/libraries").content
+    s.get(f"{KOMGA_URL}/api/v1/libraries").content
 )]
 
 emails = []
-for user in users:
-    if user["sharedAllLibraries"]:
-        emails.append({"email": user["email"], "libraries": all_libraries})
+for KOMGA_USER in users:
+    if KOMGA_USER["sharedAllLibraries"]:
+        emails.append({"email": KOMGA_USER["email"], "libraries": all_libraries})
     else:
-        emails.append({"email": user["email"], "libraries": user["sharedLibrariesIds"]})
+        emails.append({"email": KOMGA_USER["email"], "libraries": KOMGA_USER["sharedLibrariesIds"]})
 
 books = []
 page = 0
 while True:
     books_response = json.loads(
-        s.get(f"{komga_url}/api/v1/books?media_status=READY&page={page}&size=20&sort=createdDate,desc").content
+        s.get(f"{KOMGA_URL}/api/v1/books?media_status=READY&page={page}&size=20&sort=createdDate,desc").content
     )["content"]
     page += 1
     for book in books_response:
