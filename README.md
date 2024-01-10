@@ -17,9 +17,11 @@ For more information, please visit the [Komga-Discord](https://discord.gg/TdRpkD
     which will be hashed and stored in the database.
     The ```<path to database.sqlite>``` is the path to the database file, found in your Komga config folder.
 
-* ### updateSortTitle.py (requires ````.env````)
+* ### updateSortTitle.py
     This script will update the sort title of all your series by removing the leading articles (*a, an, the*)
     and appending it to the end of the title.
+    Change the ```articles``` list in the script to your liking.
+    Change the URL, username and password to match your Komga server.
     ```bash
         python updateSortTitle.py
     ```
